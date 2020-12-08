@@ -5,7 +5,7 @@ const api = "https://ethgasstation.info/api/ethgasAPI.json?";
 const csv=require('csvtojson');
 const fs = require('fs');
 const util = require('util');
-const config = require('./config.js');
+// const config = require('./config.js');
 var currentPrice = 0;
 
 function getPrices() {
