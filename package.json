@@ -1,0 +1,26 @@
+{
+  "name": "discordgasbot",
+  "version": "1.0.0",
+  "description": "Bot to display Ethereum gas prices in Discord",
+  "main": "bot.js",
+  "dependencies": {
+    "csvtojson": "^2.0.10",
+    "fast-csv": "^4.3.6",
+    "node-fetch": "^2.6.1",
+    "discord.js": "^12.5.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node bot.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RubiconDeFi/DiscordGasBot.git"
+  },
+  "author": "Benjamin Hughes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RubiconDeFi/DiscordGasBot/issues"
+  },
+  "homepage": "https://github.com/RubiconDeFi/DiscordGasBot#readme"
+}
