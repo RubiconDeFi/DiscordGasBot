@@ -1,33 +1,36 @@
 const Discord = require('discord.js');
 const fetch = require("node-fetch");
 const client = new Discord.Client();
-const TOKEN = ""
-const api = "https://ethgasstation.info/api/ethgasAPI.json?"
-
-currentPrice = 0
+const api = "https://ethgasstation.info/api/ethgasAPI.json?";
+const csv=require('csvtojson');
+const fs = require('fs');
+const util = require('util');
+const config = require('./config.js');
+var currentPrice = 0;
 
 function getPrices() {
   return fetch(api)
     .then(response => response.json())
     .then(data => currentPrice =(data['average']/10));
-}
+};
 
 getPrices().then(result => console.log('here', result));
 
-// let response = fetch(api);
-//
-// if (response.ok) { // if HTTP-status is 200-299
-//   // get the response body (the method explained below)
-//   let json = response.json();
-//   console.log(json)
-// } else {
-//   console.log("HTTP-Error: " + response.status);
-// }
+function setStatus() {
+  getPrices().then(
+    console.log('setStatus to ', currentPrice + " gwei")).then(
+    client.user.setActivity(String(currentPrice + " gwei"), { type: 'WATCHING' })
+  );
+}
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
   console.log(currentPrice);
-  client.user.setActivity(String(currentPrice + " gwei"), { type: 'WATCHING' });
+  // while (live == true) {
+});
+
+client.on('ready', () => {
+  setInterval(() => setStatus(), 60000);
 });
 
 client.on('message', msg => {
@@ -36,10 +39,4 @@ client.on('message', msg => {
   }
 });
 
-
-// client.user.setActivity("with depression", {
-//   type: "STREAMING",
-//   url: "https://www.twitch.tv/monstercat"
-// });
-
-client.login(TOKEN);
+client.login(config.token);
