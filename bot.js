@@ -34,11 +34,15 @@ client.on('ready', () => {
 });
 
 client.on('message', msg => {
+  console.log(msg.content);
   if (msg.content === 'ping') {
     msg.reply('pong');
   } else if ('gas' in msg.content) {
-    setStatus();
-    msg.reply('pong');
+    getPrices().then(msg.reply('ETH gas is currently :', currentPrice, 'gwei'));
+  } else if (msg.content === 'wen moon') {
+    msg.reply('Soon :tm:');
+  } else if ('gas' in msg.content) {
+    
   }
 });
 
