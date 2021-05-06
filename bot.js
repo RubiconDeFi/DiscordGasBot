@@ -5,7 +5,6 @@ const api = "https://ethgasstation.info/api/ethgasAPI.json?";
 const csv=require('csvtojson');
 const fs = require('fs');
 const util = require('util');
-// const config = require('./config.js');
 var currentPrice = 0;
 
 function getPrices() {
@@ -26,7 +25,6 @@ function setStatus() {
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
   console.log(currentPrice);
-  // while (live == true) {
 });
 
 client.on('ready', () => {
@@ -34,13 +32,13 @@ client.on('ready', () => {
 });
 
 client.on('message', msg => {
-  console.log(msg.content);
-  console.log(msg.author);
   if (msg.author.bot ==  true) {return;}
   if (msg.content === 'ping') {
     msg.reply('pong');
   } else if (String(msg.content).toLowerCase().includes('gas')) {
-    getPrices().then(msg.reply('ETH gas is currently :' + String(currentPrice + " gwei")));
+    getPrices().then(
+      msg.reply('ETH gas is currently: ' + String(currentPrice + " gwei ⛽"))
+      );
   } else if (String(msg.content).includes('wen moon')) {
     msg.reply('Soon :tm:');
   };
