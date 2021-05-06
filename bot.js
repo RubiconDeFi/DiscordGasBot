@@ -35,10 +35,11 @@ client.on('ready', () => {
 
 client.on('message', msg => {
   console.log(msg.content);
+  if (message.author.bot) return;
   if (msg.content === 'ping') {
     msg.reply('pong');
-  } else if (String(msg.content).includes('gas') && !msg.author.bot) {
-    // getPrices().then(msg.reply('ETH gas is currently :' + String(currentPrice + " gwei")));
+  } else if (String(msg.content).includes('gas') && msg.author.bot) {
+    getPrices().then(msg.reply('ETH gas is currently :' + String(currentPrice + " gwei")));
     // return;
   } else if (String(msg.content).includes('wen moon')) {
     msg.reply('Soon :tm:');
