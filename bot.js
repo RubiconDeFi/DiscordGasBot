@@ -37,9 +37,9 @@ client.on('message', msg => {
   console.log(msg.content);
   if (msg.content === 'ping') {
     msg.reply('pong');
-  } else if ('gas' in msg.content) {
-    // getPrices().then(msg.reply('ETH gas is currently :', currentPrice, 'gwei'));
-  } else if (msg.content === 'wen moon') {
+  } else if ('gas' in String(msg.content)) {
+    getPrices().then(msg.reply('ETH gas is currently :', currentPrice, 'gwei'));
+  } else if ('wen moon' in String(msg.content)) {
     msg.reply('Soon :tm:');
   };
 });
