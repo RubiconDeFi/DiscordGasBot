@@ -42,7 +42,7 @@ client.on('message', msg => {
   } else if (String(msg.content).includes('wen moon')) {
     msg.reply('Soon :tm:');
   } else if (String(msg.content).includes('hands')) {
-    msg.reply(':hand_splayed::diamonds::hand_splayed');
+    msg.reply(':hand_splayed::diamonds::hand_splayed:');
   };
 });
 
