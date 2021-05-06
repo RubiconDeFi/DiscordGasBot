@@ -35,7 +35,7 @@ client.on('message', msg => {
   if (msg.author.bot ==  true) {return;}
   if (msg.content === 'ping') {
     msg.reply('pong');
-  } else if (String(msg.content).toLowerCase().includes('gas')) {
+  } else if (String(msg.content) == ('gas') || String(msg.content) == ('!gas') || String(msg.content) == ('Gas') || String(msg.content) == ('GAS')) {
     getPrices().then(
       msg.reply('ETH gas is currently: ' + String(currentPrice + " gwei ⛽"))
       );
