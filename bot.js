@@ -38,12 +38,10 @@ client.on('message', msg => {
   if (msg.content === 'ping') {
     msg.reply('pong');
   } else if ('gas' in msg.content) {
-    getPrices().then(msg.reply('ETH gas is currently :', currentPrice, 'gwei'));
+    // getPrices().then(msg.reply('ETH gas is currently :', currentPrice, 'gwei'));
   } else if (msg.content === 'wen moon') {
     msg.reply('Soon :tm:');
-  } else if ('gas' in msg.content) {
-    
-  }
+  };
 });
 
 // client.login(config.token);
