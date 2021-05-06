@@ -38,7 +38,7 @@ client.on('message', msg => {
   if (msg.content === 'ping') {
     msg.reply('pong');
   } else if (String(msg.content).includes('gas')) {
-    getPrices().then(msg.reply('ETH gas is currently :', currentPrice, 'gwei'));
+    // getPrices().then(msg.reply('ETH gas is currently :' + String(currentPrice + " gwei")));
     return;
   } else if (String(msg.content).includes('wen moon')) {
     msg.reply('Soon :tm:');
