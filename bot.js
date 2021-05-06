@@ -36,7 +36,7 @@ client.on('ready', () => {
 client.on('message', msg => {
   console.log(msg.content);
   console.log(msg.author);
-  if (message.author.bot ==  true) return;
+  if (message.author.bot ==  true) {return;}
   if (msg.content === 'ping') {
     msg.reply('pong');
   } else if (String(msg.content).includes('gas') && msg.author.bot) {
